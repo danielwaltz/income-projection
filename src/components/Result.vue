@@ -34,7 +34,7 @@ export default {
 
 .result__label {
   font-style: italic;
-  font-size: 0.8rem;
+  font-size: 80%;
 }
 
 .result__value {
