@@ -1,10 +1,11 @@
 <template>
   <div class="field">
-    <label :for="name">{{prettyName}}</label>
+    <label v-if="label" :for="name">{{label}}</label>
     <input
+      :id="name"
       :type="type"
-      v-bind:value="value"
-      v-on:input="$emit('input', $event.target.value)"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
     >
   </div>
 </template>
@@ -15,7 +16,7 @@ export default {
   props: {
     type: String,
     name: String,
-    prettyName: String,
+    label: String,
     value: [String, Number],
   },
 };
