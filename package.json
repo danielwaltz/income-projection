@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --modern",
     "surge": "surge --project ./dist --domain income-projection.surge.sh",
     "deploy": "run-s build surge"
   },
