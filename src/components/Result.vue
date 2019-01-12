@@ -2,7 +2,7 @@
 <template>
   <div class="result">
     <span v-if="label" class="result__label">{{label}}:</span>
-    <span class="result__value">{{toCurrency(value)}}</span>
+    <span class="result__value">{{asCurrency}}</span>
   </div>
 </template>
 
@@ -15,9 +15,9 @@ export default {
     label: String,
     value: [String, Number],
   },
-  methods: {
-    toCurrency(amount) {
-      return currencyFormatter.format(amount.toFixed(2), {
+  computed: {
+    asCurrency() {
+      return currencyFormatter.format(this.value.toFixed(2), {
         code: 'USD',
       });
     },
