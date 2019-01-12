@@ -12,7 +12,7 @@
 
       <div class="field">
         <label for="frequency">Paycheck Frequency</label>
-        <select v-model.number="frequency" id="frequency">
+        <select id="frequency" v-model.number="frequency">
           <option value="52">Every Week</option>
           <option value="26">Every Two Weeks</option>
           <option value="24">Twice a Month</option>

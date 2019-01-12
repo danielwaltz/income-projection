@@ -14,10 +14,22 @@
 export default {
   name: 'Field',
   props: {
-    type: String,
-    name: String,
-    label: String,
-    value: [String, Number],
+    type: {
+      type: String,
+      default: 'text',
+    },
+    name: {
+      type: String,
+      default: '',
+    },
+    label: {
+      type: String,
+      default: '',
+    },
+    value: {
+      type: [String, Number],
+      default: '',
+    },
   },
 };
 </script>

@@ -5,8 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build --modern",
-    "lint": "vue-cli-service lint",
-    "deploy": "run-s build surge",
+    "lint": "vue-cli-service lint --no-fix",
+    "deploy": "run-s lint build surge",
     "surge": "surge --project ./dist --domain income-projection.surge.sh"
   },
   "dependencies": {
@@ -30,6 +30,24 @@
     "presets": [
       "@vue/app"
     ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/recommended",
+      "@vue/prettier"
+    ],
+    "rules": {
+      "no-console": "off",
+      "no-debugger": "off",
+      "vue/component-name-in-template-casing": "error"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
   },
   "prettier": {
     "singleQuote": true,

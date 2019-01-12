@@ -11,8 +11,14 @@ import currencyFormatter from 'currency-formatter';
 export default {
   name: 'Result',
   props: {
-    label: String,
-    value: [String, Number],
+    label: {
+      type: String,
+      default: '',
+    },
+    value: {
+      type: [String, Number],
+      default: '',
+    },
   },
   computed: {
     asCurrency() {
