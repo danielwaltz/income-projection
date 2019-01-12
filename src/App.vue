@@ -28,7 +28,7 @@
 
       <Field
         v-model.number="expenses"
-        label="Monthy Expenses"
+        label="Monthly Expenses"
         name="expenses"
         type="number"
       />
@@ -38,7 +38,7 @@
       <div class="results">
         <h3>Gross</h3>
         <Result label="Yearly" :value="grossIncome" />
-        <Result label="Monthy" :value="grossIncome / 12" />
+        <Result label="Monthly" :value="grossIncome / 12" />
         <Result label="Paycheck" :value="grossIncome / frequency" />
         <Result label="Hourly" :value="grossIncome / 2080" />
       </div>
@@ -46,7 +46,7 @@
       <div class="results">
         <h3>Net</h3>
         <Result label="Yearly" :value="netIncome" />
-        <Result label="Monthy" :value="netIncome / 12" />
+        <Result label="Monthly" :value="netIncome / 12" />
         <Result label="Paycheck" :value="netIncome / frequency" />
         <Result label="Hourly" :value="netIncome / 2080" />
       </div>
@@ -54,7 +54,7 @@
       <div class="results">
         <h3>True</h3>
         <Result label="Yearly" :value="trueIncome" />
-        <Result label="Monthy" :value="trueIncome / 12" />
+        <Result label="Monthly" :value="trueIncome / 12" />
         <Result label="Paycheck" :value="trueIncome / frequency" />
         <Result label="Hourly" :value="trueIncome / 2080" />
       </div>
