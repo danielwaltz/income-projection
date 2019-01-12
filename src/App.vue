@@ -107,7 +107,7 @@ export default {
       return this.salary;
     },
     netIncome() {
-      return this.grossIncome / 100 * (100 - this.taxable);
+      return (this.grossIncome / 100) * (100 - this.taxable);
     },
     trueIncome() {
       return this.netIncome - this.expenses * 12;
