@@ -158,12 +158,6 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-h1,
-h2,
-h3 {
-  margin: 0;
-}
-
 .columns {
   display: flex;
   flex-wrap: wrap;
@@ -176,7 +170,10 @@ h3 {
   padding: 1rem;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: calc(1200px + 6rem)) {
+  #app {
+    max-width: 500px;
+  }
   body .columns.columns > div {
     width: 100%;
     max-width: 100%;
@@ -184,6 +181,12 @@ h3 {
   body .compounded-group .result {
     font-size: 1rem;
   }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
 }
 
 label {

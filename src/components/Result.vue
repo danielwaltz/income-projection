@@ -1,6 +1,6 @@
 <template>
   <div class="result">
-    <span v-if="label" class="result__label">{{ label }}:</span>
+    <span v-if="label" class="result__label">{{ label }}</span>
     <span class="result__value">{{ asCurrency }}</span>
   </div>
 </template>
