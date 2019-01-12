@@ -37,26 +37,26 @@
     <section class="results-group columns">
       <div class="results">
         <h3>Gross</h3>
-        <Result label="Yearly" :value="grossIncome" />
-        <Result label="Monthly" :value="grossIncome / 12" />
-        <Result label="Paycheck" :value="grossIncome / frequency" />
-        <Result label="Hourly" :value="grossIncome / 2080" />
+        <Result :value="grossIncome" label="Yearly" />
+        <Result :value="grossIncome / 12" label="Monthly" />
+        <Result :value="grossIncome / frequency" label="Paycheck" />
+        <Result :value="grossIncome / 2080" label="Hourly" />
       </div>
 
       <div class="results">
         <h3>Net</h3>
-        <Result label="Yearly" :value="netIncome" />
-        <Result label="Monthly" :value="netIncome / 12" />
-        <Result label="Paycheck" :value="netIncome / frequency" />
-        <Result label="Hourly" :value="netIncome / 2080" />
+        <Result :value="netIncome" label="Yearly" />
+        <Result :value="netIncome / 12" label="Monthly" />
+        <Result :value="netIncome / frequency" label="Paycheck" />
+        <Result :value="netIncome / 2080" label="Hourly" />
       </div>
 
       <div class="results">
         <h3>True</h3>
-        <Result label="Yearly" :value="trueIncome" />
-        <Result label="Monthly" :value="trueIncome / 12" />
-        <Result label="Paycheck" :value="trueIncome / frequency" />
-        <Result label="Hourly" :value="trueIncome / 2080" />
+        <Result :value="trueIncome" label="Yearly" />
+        <Result :value="trueIncome / 12" label="Monthly" />
+        <Result :value="trueIncome / frequency" label="Paycheck" />
+        <Result :value="trueIncome / 2080" label="Hourly" />
       </div>
     </section>
 
@@ -75,9 +75,9 @@
         name="years"
         type="number"
       />
-      <Result label="Gross" :value="compound(grossIncome)" />
-      <Result label="Net" :value="compound(netIncome)" />
-      <Result label="True" :value="compound(trueIncome)" />
+      <Result :value="compound(grossIncome)" label="Gross" />
+      <Result :value="compound(netIncome)" label="Net" />
+      <Result :value="compound(trueIncome)" label="True" />
     </section>
   </div>
 </template>
