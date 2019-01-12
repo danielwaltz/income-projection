@@ -1,12 +1,12 @@
 <template>
   <div class="field">
-    <label v-if="label" :for="name">{{label}}</label>
+    <label v-if="label" :for="name">{{ label }}</label>
     <input
       :id="name"
       :type="type"
       :value="value"
       @input="$emit('input', $event.target.value)"
-    >
+    />
   </div>
 </template>
 
