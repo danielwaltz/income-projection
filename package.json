@@ -40,18 +40,14 @@
       "plugin:vue/recommended",
       "@vue/prettier"
     ],
-    "rules": {
-      "no-console": "off",
-      "no-debugger": "off",
-      "vue/component-name-in-template-casing": "error"
-    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
   },
   "prettier": {
     "singleQuote": true,
-    "trailingComma": "es5"
+    "trailingComma": "es5",
+    "htmlWhitespaceSensitivity": "ignore"
   },
   "postcss": {
     "plugins": {

@@ -1,7 +1,7 @@
 <template>
   <div class="result">
-    <span v-if="label" class="result__label">{{ label }}</span>
-    <span class="result__value">{{ asCurrency }}</span>
+    <span v-if="label" class="label">{{ label }}</span>
+    <span class="value">{{ asCurrency }}</span>
   </div>
 </template>
 
@@ -22,7 +22,8 @@ export default {
   },
   computed: {
     asCurrency() {
-      return currencyFormatter.format(this.value.toFixed(2), {
+      const parsed = parseFloat(this.value);
+      return currencyFormatter.format(parsed.toFixed(2), {
         code: 'USD',
       });
     },
@@ -37,12 +38,12 @@ export default {
   align-items: center;
 }
 
-.result__label {
+.label {
   font-style: italic;
   font-size: 80%;
 }
 
-.result__value {
+.value {
   font-weight: 700;
 }
 </style>

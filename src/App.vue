@@ -5,32 +5,35 @@
     <section class="field-group columns">
       <Field
         v-model.number="salary"
+        type="number"
         label="Salary"
         name="salary"
-        type="number"
       />
 
-      <div class="field">
-        <label for="frequency">Paycheck Frequency</label>
-        <select id="frequency" v-model.number="frequency">
-          <option value="52">Every Week</option>
-          <option value="26">Every Two Weeks</option>
-          <option value="24">Twice a Month</option>
-        </select>
-      </div>
+      <Field
+        v-model.number="frequency"
+        :items="[
+          { label: 'Every Week', value: 52 },
+          { label: 'Every Two Weeks', value: 26 },
+          { label: 'Twice a Month', value: 24 },
+        ]"
+        type="select"
+        label="Paycheck Frequency"
+        name="frequency"
+      />
 
       <Field
         v-model.number="taxable"
+        type="number"
         label="Taxable Percent"
         name="taxable"
-        type="number"
       />
 
       <Field
         v-model.number="expenses"
+        type="number"
         label="Monthly Expenses"
         name="expenses"
-        type="number"
       />
     </section>
 
@@ -65,15 +68,15 @@
     <section class="compounded-group columns">
       <Field
         v-model.number="interest"
+        type="number"
         label="Percent Increase"
         name="interest"
-        type="number"
       />
       <Field
         v-model.number="years"
+        type="number"
         label="Number of Years"
         name="years"
-        type="number"
       />
       <Result :value="compound(grossIncome)" label="Gross" />
       <Result :value="compound(netIncome)" label="Net" />
@@ -187,21 +190,6 @@ h1,
 h2,
 h3 {
   margin: 0;
-}
-
-label {
-  display: block;
-  font-style: italic;
-  margin-bottom: 0.1rem;
-  font-size: 0.8rem;
-}
-
-input,
-select {
-  display: block;
-  width: 100%;
-  font-size: 1rem;
-  padding: 0.5rem;
 }
 
 .field-group .field {
