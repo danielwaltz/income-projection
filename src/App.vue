@@ -3,14 +3,14 @@
     <h1>Income Projection</h1>
 
     <section class="field-group columns">
-      <Field
+      <BaseInput
         v-model.number="salary"
         type="number"
         label="Salary"
         name="salary"
       />
 
-      <Field
+      <BaseSelect
         v-model.number="frequency"
         :items="[
           { label: 'Every Week', value: 52 },
@@ -22,14 +22,14 @@
         name="frequency"
       />
 
-      <Field
+      <BaseInput
         v-model.number="taxable"
         type="number"
         label="Taxable Percent"
         name="taxable"
       />
 
-      <Field
+      <BaseInput
         v-model.number="expenses"
         type="number"
         label="Monthly Expenses"
@@ -37,63 +37,65 @@
       />
     </section>
 
-    <section class="results-group columns">
-      <div class="results">
+    <section class="result-group columns">
+      <div class="result">
         <h3>Gross</h3>
-        <Result :value="grossIncome" label="Yearly" />
-        <Result :value="grossIncome / 12" label="Monthly" />
-        <Result :value="grossIncome / frequency" label="Paycheck" />
-        <Result :value="grossIncome / 2080" label="Hourly" />
+        <AmountResult :value="grossIncome" label="Yearly" />
+        <AmountResult :value="grossIncome / 12" label="Monthly" />
+        <AmountResult :value="grossIncome / frequency" label="Paycheck" />
+        <AmountResult :value="grossIncome / 2080" label="Hourly" />
       </div>
 
-      <div class="results">
+      <div class="result">
         <h3>Net</h3>
-        <Result :value="netIncome" label="Yearly" />
-        <Result :value="netIncome / 12" label="Monthly" />
-        <Result :value="netIncome / frequency" label="Paycheck" />
-        <Result :value="netIncome / 2080" label="Hourly" />
+        <AmountResult :value="netIncome" label="Yearly" />
+        <AmountResult :value="netIncome / 12" label="Monthly" />
+        <AmountResult :value="netIncome / frequency" label="Paycheck" />
+        <AmountResult :value="netIncome / 2080" label="Hourly" />
       </div>
 
-      <div class="results">
+      <div class="result">
         <h3>True</h3>
-        <Result :value="trueIncome" label="Yearly" />
-        <Result :value="trueIncome / 12" label="Monthly" />
-        <Result :value="trueIncome / frequency" label="Paycheck" />
-        <Result :value="trueIncome / 2080" label="Hourly" />
+        <AmountResult :value="trueIncome" label="Yearly" />
+        <AmountResult :value="trueIncome / 12" label="Monthly" />
+        <AmountResult :value="trueIncome / frequency" label="Paycheck" />
+        <AmountResult :value="trueIncome / 2080" label="Hourly" />
       </div>
     </section>
 
     <h2>Compounded</h2>
 
     <section class="compounded-group columns">
-      <Field
+      <BaseInput
         v-model.number="interest"
         type="number"
         label="Percent Increase"
         name="interest"
       />
-      <Field
+      <BaseInput
         v-model.number="years"
         type="number"
         label="Number of Years"
         name="years"
       />
-      <Result :value="compound(grossIncome)" label="Gross" />
-      <Result :value="compound(netIncome)" label="Net" />
-      <Result :value="compound(trueIncome)" label="True" />
+      <AmountResult :value="compound(grossIncome)" label="Gross" />
+      <AmountResult :value="compound(netIncome)" label="Net" />
+      <AmountResult :value="compound(trueIncome)" label="True" />
     </section>
   </div>
 </template>
 
 <script>
-import Field from '@/components/Field';
-import Result from '@/components/Result';
+import BaseInput from '@/components/BaseInput';
+import BaseSelect from '@/components/BaseSelect';
+import AmountResult from '@/components/AmountResult';
 
 export default {
   name: 'App',
   components: {
-    Field,
-    Result,
+    BaseInput,
+    BaseSelect,
+    AmountResult,
   },
   data() {
     return {
@@ -137,7 +139,8 @@ export default {
 }
 
 html,
-body {
+body,
+#app {
   min-height: 100vh;
 }
 
@@ -169,7 +172,7 @@ body {
   margin-right: -1rem;
 }
 
-.columns > div {
+.columns > * {
   padding: 1rem;
 }
 
@@ -177,11 +180,11 @@ body {
   #app {
     max-width: 500px;
   }
-  body .columns.columns > div {
+  body .columns.columns > * {
     width: 100%;
     max-width: 100%;
   }
-  body .compounded-group .result {
+  body .compounded-group .amount-result {
     font-size: 1rem;
   }
 }
@@ -192,33 +195,33 @@ h3 {
   margin: 0;
 }
 
-.field-group .field {
+.field-group .field-container {
   width: 50%;
 }
 
-.results-group {
+.result-group {
   margin-bottom: 1rem;
 }
 
-.results-group .results {
+.result-group .result {
   width: 100%;
   max-width: 350px;
   padding: 1rem;
 }
 
-.results-group .result {
+.result-group .amount-result {
   margin-top: 0.5rem;
 }
 
-.results-group .result:first-child {
+.result-group .amount-result:first-child {
   margin-top: 0;
 }
 
-.compounded-group > div {
+.compounded-group .field-container {
   width: 50%;
 }
 
-.compounded-group .result {
+.compounded-group .amount-result {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   width: 100%;

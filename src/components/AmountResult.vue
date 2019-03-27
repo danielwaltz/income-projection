@@ -1,5 +1,5 @@
 <template>
-  <div class="result">
+  <div class="amount-result">
     <span v-if="label" class="label">{{ label }}</span>
     <span class="value">{{ asCurrency }}</span>
   </div>
@@ -9,7 +9,7 @@
 import currencyFormatter from 'currency-formatter';
 
 export default {
-  name: 'Result',
+  name: 'AmountResult',
   props: {
     label: {
       type: String,
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-.result {
+.amount-result {
   display: flex;
   justify-content: space-between;
   align-items: center;
