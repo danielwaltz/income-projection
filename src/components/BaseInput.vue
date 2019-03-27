@@ -22,10 +22,6 @@ export default {
   inheritAttrs: false,
   props: {
     ...FieldContainer.props,
-    value: {
-      type: [String, Number],
-      default: '',
-    },
   },
   computed: {
     listeners() {

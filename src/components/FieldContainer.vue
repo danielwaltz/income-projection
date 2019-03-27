@@ -14,6 +14,10 @@ export default {
       default: '',
       required: true,
     },
+    value: {
+      type: [String, Number],
+      default: '',
+    },
     label: {
       type: String,
       default: '',

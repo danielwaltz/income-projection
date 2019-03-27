@@ -19,10 +19,6 @@ export default {
   inheritAttrs: false,
   props: {
     ...FieldContainer.props,
-    value: {
-      type: [String, Number],
-      default: '',
-    },
     items: {
       type: Array,
       default: () => [],
