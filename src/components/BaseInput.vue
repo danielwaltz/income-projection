@@ -11,20 +11,21 @@
   </FieldContainer>
 </template>
 
-<script>
-import FieldContainer from '@/components/FieldContainer';
+<script lang="ts">
+import Vue from 'vue';
+import FieldContainer, { props } from '@/components/FieldContainer.vue';
 
-export default {
+export default Vue.extend({
   name: 'BaseInput',
   components: {
     FieldContainer,
   },
   inheritAttrs: false,
   props: {
-    ...FieldContainer.props,
+    ...props,
   },
   computed: {
-    listeners() {
+    listeners(): any {
       return {
         ...this.$listeners,
         input: this.update,
@@ -32,11 +33,11 @@ export default {
     },
   },
   methods: {
-    update(event) {
+    update(event: HTMLInputEvent) {
       this.$emit('input', event.target.value);
     },
   },
-};
+});
 </script>
 
 <style scoped>

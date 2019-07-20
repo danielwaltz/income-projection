@@ -5,10 +5,11 @@
   </div>
 </template>
 
-<script>
-import currencyFormatter from 'currency-formatter';
+<script lang="ts">
+import Vue from 'vue';
+import formatCurrency from '@/utils/formatCurrency';
 
-export default {
+export default Vue.extend({
   name: 'AmountResult',
   props: {
     label: {
@@ -21,14 +22,11 @@ export default {
     },
   },
   computed: {
-    asCurrency() {
-      const parsed = parseFloat(this.value);
-      return currencyFormatter.format(parsed.toFixed(2), {
-        code: 'USD',
-      });
+    asCurrency(): string {
+      return formatCurrency(this.value);
     },
   },
-};
+});
 </script>
 
 <style scoped>

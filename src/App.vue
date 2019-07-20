@@ -85,12 +85,13 @@
   </div>
 </template>
 
-<script>
-import BaseInput from '@/components/BaseInput';
-import BaseSelect from '@/components/BaseSelect';
-import AmountResult from '@/components/AmountResult';
+<script lang="ts">
+import Vue from 'vue';
+import BaseInput from '@/components/BaseInput.vue';
+import BaseSelect from '@/components/BaseSelect.vue';
+import AmountResult from '@/components/AmountResult.vue';
 
-export default {
+export default Vue.extend({
   name: 'App',
   components: {
     BaseInput,
@@ -108,18 +109,18 @@ export default {
     };
   },
   computed: {
-    grossIncome() {
+    grossIncome(): number {
       return this.salary;
     },
-    netIncome() {
+    netIncome(): number {
       return (this.grossIncome / 100) * (100 - this.taxable);
     },
-    trueIncome() {
+    trueIncome(): number {
       return this.netIncome - this.expenses * 12;
     },
   },
   methods: {
-    compound(amount) {
+    compound(amount: number) {
       let accumulated = 0;
 
       for (let i = 0; i < this.years; i++) {
@@ -130,7 +131,7 @@ export default {
       return accumulated;
     },
   },
-};
+});
 </script>
 
 <style>

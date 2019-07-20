@@ -5,25 +5,31 @@
   </label>
 </template>
 
-<script>
-export default {
-  name: 'FieldContainer',
-  props: {
-    name: {
-      type: String,
-      default: '',
-      required: true,
-    },
-    value: {
-      type: [String, Number],
-      default: '',
-    },
-    label: {
-      type: String,
-      default: '',
-    },
+<script lang="ts">
+import Vue from 'vue';
+
+export const props = {
+  name: {
+    type: String,
+    default: '',
+    required: true,
+  },
+  value: {
+    type: [String, Number],
+    default: '',
+  },
+  label: {
+    type: String,
+    default: '',
   },
 };
+
+export default Vue.extend({
+  name: 'FieldContainer',
+  props: {
+    ...props,
+  },
+});
 </script>
 
 <style scoped>
