@@ -121,13 +121,13 @@ export default Vue.extend({
   },
   methods: {
     compound(amount: number) {
-      let accumulated = 0;
-
-      for (let i = 0; i < this.years; i++) {
-        accumulated *= this.interest / 100 + 1;
-        accumulated += amount;
-      }
-
+      const accumulated = Array(this.years)
+        .fill(0)
+        .reduce(result => {
+          result *= this.interest / 100 + 1;
+          result += amount;
+          return result;
+        }, 0);
       return accumulated;
     },
   },
@@ -177,7 +177,7 @@ body {
   padding: 1rem;
 }
 
-@media (max-width: calc(1200px + 6rem)) {
+@media (max-width: calc(1000px + 6rem)) {
   #app {
     max-width: 500px;
   }
