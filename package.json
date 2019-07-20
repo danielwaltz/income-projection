@@ -10,9 +10,7 @@
     "surge": "surge --project ./dist --domain income-projection.surge.sh"
   },
   "dependencies": {
-    "currency-formatter": "^1.5.4",
-    "vue": "^2.6.10",
-    "vue-function-api": "^2.0.6"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.2",
